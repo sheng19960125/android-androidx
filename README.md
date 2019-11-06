@@ -21,3 +21,45 @@ android.enableJetifier=true
 
 ### Jetpack架構簡易說明
 Jetpack其實不屬於Android Framework，不是Android開發中所必要的，他只屬於一種應用層面的開發副助工具。幫我們解決一些在相較之前版本裡面會容易出現的問題，例如：版本兼容性、生命週期管理、API應用等等，其中Architecture部分組件，(Android Architecture Components，簡稱 AAC)，组合起來形成了一套完整的架構解决方案。
+
+##  為什麼要遷移 AndroidX？
+以官方文黨為例如下：
+```
+Existing packages, such as the Android Support Library, are being refactored into AndroidX.
+Although Support Library versions 27 and lower are still available on Google Maven,
+all new development will be included in only AndroidX versions 1.0.0 and higher.
+```
+簡易來說，存在現有的andorid支持庫，正在被重建為androidx，新開發將只包含於Androidx 1.0.0以及更高版本中，簡易來說以前得版本依樣可以坐使用，相較作為普遍狀況來說是好友善的。
+
+##  AndroidX 遷移步驟?
+1.在更新前有前提必須遵守：    
+* Android studio 升級到 3.2 及以上    
+* Gradle 插件版本改為 4.6 及以上
+* compileSdkVersion 版本升級到 28 及以上
+* buildToolsVersion 版本改為 28.0.2 及以上     
+2.配置方法：
+* 在`gradle.properties`文件里添加如下配置：
+```
+android.useAndroidX=true      //  表示當前項目啟用 androidx
+android.enableJetifier=true   // 表示將依賴包也遷移到androidx
+```     
+3.修改依賴庫銘：
+以基礎為例，如下：
+```
+before: implementation 'com.android.support:appcompat-v7:28.0.2'
+after : mplementation 'androidx.appcompat:appcompat:1.0.0'
+
+before: implementation 'com.android.support:design:28.0.2'
+after : implementation 'com.google.android.material:material:1.0.0'
+
+before: implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+after : implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+```
+此三種為最基礎的依賴庫映射
+
+4.依賴類重新導包：
+將原來 import 的 android.** 包刪除，重新 import 新的 androidx.** 包
+```
+before : import android.support.v7.app.AppCompatActivity; 
+after  : import androidx.appcompat.app.AppCompatActivity;
+```
