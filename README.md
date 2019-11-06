@@ -12,8 +12,12 @@ AndroidX 是 Google 2018 IO 大會推出的新擴展庫，主要是對 Android�
 ##什麼是Jetpack?
 Google 为了帮助 Android 开发者更快更好地开发 App，推出了一系列组件，这些组件被打包成了一个整体，称作Android Jetpack，它包含的组件如下图所示：
 
-老的支持包被整合進了Jetpack，例如上圖Foundation Module的AppCompat，整合進去之後，包名剛剛一下修改，全部以androidx開頭。AndroidStudio提供的遷移工具（移植>遷移到AndroidX）可以將源碼中的舊包名替換成新的，但是如果Maven依賴的生成物不再遷移到AndroidX的話，還需要配置一個工具-Jetifier，只需要在build.gradle中加上兩行配置即可 
+老的`support`包被整合進了`Jetpack`，例如上圖`Foundation Model`的AppCompat，整合進去之後，包名做了一下修改，全部以`androidx`為開頭。AndroidStudio提供的遷移工具`（Refactor > Migrate to AndroidX）`可以將源碼中的舊包名替換成新的，但是如果Maven依賴的生成物不再遷移到`AndroidX`的話，還需要配置一個工具-`Jetifier`，只需要在build.gradle中加上兩行配置即可: 
 ```
 android.useAndroidX=true
 android.enableJetifier=true
 ```
+而添加後，`Jetfier`會在編譯階段直接修改依赖產物的字節碼，簡易粗暴。
+
+### Jetpack架構簡易說明
+Jetpack其實不屬於Android Framework，不是Android開發中所必要的，他只屬於一種應用層面的開發副助工具。幫我們解決一些在相較之前版本裡面會容易出現的問題，例如：版本兼容性、生命週期管理、API應用等等，其中Architecture部分組件，(Android Architecture Components，簡稱 AAC)，组合起來形成了一套完整的架構解决方案。
