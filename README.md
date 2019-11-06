@@ -1,5 +1,5 @@
 # android-androidx
-##簡易介紹AndroidX  
+##  簡易介紹AndroidX  
 AndroidX 是 Google 2018 IO 大會推出的新擴展庫，主要是對 Android支持庫做了重大改進。與支持庫一樣，AndroidX 與 Android 作業系統分開提供，並與各個 Android 版本向後兼容，可以說 AndroidX 就是為了替換 Android 支持庫而設計的。
 
 ##  甚麼是AndroidX?
