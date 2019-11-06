@@ -36,13 +36,15 @@ all new development will be included in only AndroidX versions 1.0.0 and higher.
 * Android studio 升級到 3.2 及以上    
 * Gradle 插件版本改為 4.6 及以上
 * compileSdkVersion 版本升級到 28 及以上
-* buildToolsVersion 版本改為 28.0.2 及以上     
+* buildToolsVersion 版本改為 28.0.2 及以上       
+    
 2.配置方法：
 * 在`gradle.properties`文件里添加如下配置：
 ```
 android.useAndroidX=true      //  表示當前項目啟用 androidx
 android.enableJetifier=true   // 表示將依賴包也遷移到androidx
 ```     
+    
 3.修改依賴庫銘：
 以基礎為例，如下：
 ```
@@ -56,7 +58,7 @@ before: implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 after : implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
 ```
 此三種為最基礎的依賴庫映射
-
+    
 4.依賴類重新導包：
 將原來 import 的 android.** 包刪除，重新 import 新的 androidx.** 包
 ```
