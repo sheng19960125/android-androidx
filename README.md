@@ -65,3 +65,10 @@ after : implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
 before : import android.support.v7.app.AppCompatActivity; 
 after  : import androidx.appcompat.app.AppCompatActivity;
 ```
+##  整合庫
+```
+<android.support.v4.widget.NestedScrollView/>	 ->   <androidx.core.widget.NestedScrollView/>
+```
+
+##  支持庫的用途
+
